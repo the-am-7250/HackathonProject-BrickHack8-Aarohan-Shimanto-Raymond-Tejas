@@ -1,5 +1,8 @@
 package src;
-
+/**
+ * File Name: TeamBase.java
+ * @author: Shimanto Bhowmik
+ */
 public abstract class TeamBase {
     
     protected final int MAX_MORALE = 100;
@@ -17,4 +20,5 @@ public abstract class TeamBase {
 
     public abstract double getTotalCost();
 
+   
 }
