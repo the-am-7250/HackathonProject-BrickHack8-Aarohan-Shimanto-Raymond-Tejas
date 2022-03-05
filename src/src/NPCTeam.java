@@ -3,7 +3,7 @@ package src;
  * File name: NPCTeam.java
  * @author: Aarohan Mishra
  */
-public class NPCTeam extends TeamBase{
+public class NPCTeam extends TeamBase implements Comparable<NPCTeam>{
     private int Morale;
     private int cash;
     private String NAME;
@@ -40,6 +40,14 @@ public class NPCTeam extends TeamBase{
     }
     public void affectMorale(int moraleAffect){
         Morale+= moraleAffect;
+    }
+    @Override
+    public int compareTo(NPCTeam other) {
+        int result = this.pointsGained - other.pointsGained;
+        if (result ==0){
+            this.NAME.compareTo(other.NAME);
+        }
+        return result;
     }
     
 }
