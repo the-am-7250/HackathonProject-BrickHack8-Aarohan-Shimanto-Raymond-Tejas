@@ -2,14 +2,17 @@
  * File Name: myTeam.java
  * @author: Aarohan Mishra
  */
-public class myTeam extends TeamBase{
+public class myTeam{
     private int Morale;
+    private final int MAX_MORALE= 100;
+    private final int MIN_MORALE= 0;
     private String NAME;
     private double cash;
+    private double MIN_CASH= 0.0;
+    private final int totalGamesToPlay= 18;
     private int gamesPlayed;
     private int pointsGained;
     public myTeam(String name){
-        super();
         Morale= 60;
         cash= 1000;
         NAME= name;
@@ -19,10 +22,10 @@ public class myTeam extends TeamBase{
     public int getMorale(){
         return Morale;
     }
-    public String getName(){
+    public String getTeamName(){
         return NAME;
     }
-    public double getTotalCost(){
+    public double getTotalCash(){
         return cash;
     }
     public int getGamesPlayed(){
@@ -36,11 +39,5 @@ public class myTeam extends TeamBase{
     }
     public void gamePlayed(){
         gamesPlayed+=1;
-    }
-    public void affectMorale(int moraleAffect){
-        Morale+= moraleAffect;
-    }
-    public void affectCash(int affectCash){
-        cash+= affectCash;
     }
 }
