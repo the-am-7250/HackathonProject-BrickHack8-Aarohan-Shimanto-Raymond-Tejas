@@ -7,7 +7,7 @@ Buffaloes
 Camels
 Cats
 Cobras
-Crocodiles:
+Crocodiles
 Crows
 Dogs
 Donkeys
