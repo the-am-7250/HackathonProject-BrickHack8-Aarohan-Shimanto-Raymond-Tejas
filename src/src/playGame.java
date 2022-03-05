@@ -16,7 +16,7 @@ public class playGame {
         ArrayList<String> animalNames= new ArrayList<>();
         ArrayList<String> attributes= new ArrayList<>();
         try{
-        BufferedReader fr1= new BufferedReader(new FileReader("AnimalName.txt"));
+        BufferedReader fr1= new BufferedReader(new FileReader("AnimalNames.txt"));
         String s1= fr1.readLine();
         while(s1!=null){
             animalNames.add(s1);
