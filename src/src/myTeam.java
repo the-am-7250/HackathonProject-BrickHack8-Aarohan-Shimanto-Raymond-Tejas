@@ -1,7 +1,7 @@
 package src;
 /**
  * File Name: myTeam.java
- * @author: Aarohan Mishra
+ * @author: Aarohan Mishra and Shimanto Bhowmik
  */
 public class myTeam extends TeamBase implements Team{
     private int Morale;
@@ -38,5 +38,19 @@ public class myTeam extends TeamBase implements Team{
     }
     public void gamePlayed(){
         gamesPlayed+=1;
+    }
+    public boolean isCashZero(){
+        boolean bool = false;
+        if(cash ==0){
+            bool = true;
+        }
+        return bool;
+    }
+    public boolean isMoraleZero(){
+        boolean bool = false;
+        if(Morale ==0){
+            bool = true;
+        }
+        return bool;
     }
 }
