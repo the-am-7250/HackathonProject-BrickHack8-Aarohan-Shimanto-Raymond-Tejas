@@ -23,7 +23,7 @@ public class playGame {
             s1= fr1.readLine();
         }
         }catch(IOException E){
-            System.err.println("File not found");
+            System.err.println(E);
         }
         try{
         BufferedReader fr2= new BufferedReader(new FileReader("Attributes.txt"));
@@ -33,7 +33,7 @@ public class playGame {
             s2= fr2.readLine();
         }
         }catch(IOException E){
-            System.err.println("File not found");
+            System.err.println(E);
         }
         int i;
         for(i=0;i<9;i++){
