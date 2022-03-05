@@ -39,6 +39,13 @@ public class myTeam extends TeamBase implements Team{
     public void gamePlayed(){
         gamesPlayed+=1;
     }
+
+    public void affectMorale(int moraleAffect){
+        Morale+= moraleAffect;
+    }
+    public void affectCash(int cashAffect){
+        cash+=cashAffect;
+    }
     public boolean isCashZero(){
         boolean bool = false;
         if(cash ==0){
