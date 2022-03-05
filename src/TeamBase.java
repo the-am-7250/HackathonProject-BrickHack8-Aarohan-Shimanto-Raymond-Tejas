@@ -2,12 +2,12 @@ package src;
 
 public abstract class TeamBase {
     
-    public final int MAX_MORALE = 100;
-    public final int MIN_MORALE = 0;
-    public final double MIN_CASH = 0;
+    protected final int MAX_MORALE = 100;
+    protected final int MIN_MORALE = 0;
+    protected final double MIN_CASH = 0;
+    protected int TOTAL_GAMES_TO_PLAY = 18;
 
-
-    public TeamBase(String name){
+    public TeamBase(){
     
     }
 
