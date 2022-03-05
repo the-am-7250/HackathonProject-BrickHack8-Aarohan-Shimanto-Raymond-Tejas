@@ -3,6 +3,7 @@ package src;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 /**
  * File name: playGame.java
  * @author: Aarohan Mishra and Shimanto Bhowmik
@@ -79,5 +80,13 @@ public class playGame{
             }
         }
     }
-    //
+    // //
+    // public void Simulation(){
+    //     System.out.println("Do you want to train your team?(Cash-300,Morale+10)(Y/N)");
+    //     System.out.println("Do you want to buy a player?(Cash-700,Morale- +10/-15)(Y/N)");
+    //     System.out.println("DO you want to give rest to your team?(Cash-60,Morale+5)");
+    //     System.out.println("Do you want to sell a player?(Cash+700,Morale- 10)(Y/N)");
+    //     System.out.println("One of your pleayers is going to jail because of going over the speed limit.");
+    //     System.out.println("Do you want to resolve this issue?(Cash-900, N-Moral-20)(Y/N)");
+    // }
 }
