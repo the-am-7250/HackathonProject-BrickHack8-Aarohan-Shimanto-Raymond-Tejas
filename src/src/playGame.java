@@ -2,17 +2,20 @@ package src;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Random;
 /**
  * File name: playGame.java
  * @author: Aarohan Mishra and Shimanto Bhowmik
  */
-public class playGame {
+public class playGame implements Comparator<Team>{
     private ArrayList<NPCTeam> teams;
     private Random r;
+    private BufferedReader br;
     public playGame()throws IOException{
         teams= new ArrayList<>();
         r= new Random();
+        br= new BufferedReader(new InputStreamReader(System.in));
         ArrayList<String> animalNames= new ArrayList<>();
         ArrayList<String> attributes= new ArrayList<>();
         try{
@@ -46,13 +49,16 @@ public class playGame {
             teams.add(e);
         }
     }
+    public void createYourTeam()throws IOException{
+        System.out.println("Enter the name of your team: ");
+        String teamName= br.readLine();
+    }
+    public int compare(Team a, Team b){
+        return 0;
+    }
     public void displayTeams(){
         for(NPCTeam E: teams){
             System.out.println(E.getName());
         }
-    }
-    public static void main(String[] args)throws IOException{
-        playGame obj= new playGame();
-        obj.displayTeams();
     }
 }
