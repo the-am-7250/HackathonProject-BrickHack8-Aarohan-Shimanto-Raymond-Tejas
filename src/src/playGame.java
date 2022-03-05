@@ -2,13 +2,12 @@ package src;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.Random;
 /**
  * File name: playGame.java
  * @author: Aarohan Mishra and Shimanto Bhowmik
  */
-public class playGame implements Comparator<Team>{
+public class playGame{
     private ArrayList<NPCTeam> teams;
     private Random r;
     private BufferedReader br;
@@ -54,7 +53,11 @@ public class playGame implements Comparator<Team>{
         String teamName= br.readLine();
     }
     public int compare(Team a, Team b){
-        return 0;
+        int result= a.getPoints() - b.getPoints();
+        if(result == 0){
+            result= a.getName().compareTo(b.getName());
+        }
+        return result;
     }
     public void displayTeams(){
         for(NPCTeam E: teams){

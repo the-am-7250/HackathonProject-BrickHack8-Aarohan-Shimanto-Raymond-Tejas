@@ -3,7 +3,7 @@ package src;
  * File Name: TeamBase.java
  * @author: Shimanto Bhowmik
  */
-public abstract class TeamBase {
+public abstract class TeamBase implements Team{
     
     protected final int MAX_MORALE = 100;
     protected final int MIN_MORALE = 0;
@@ -15,10 +15,16 @@ public abstract class TeamBase {
     }
 
     public abstract int getMorale();
-
-    public abstract String getName();
+    @Override
+    public String getName(){
+        return null;
+    }
 
     public abstract double getTotalCost();
+    @Override
+    public int getPoints(){
+        return 0;
+    }
 
    
 }

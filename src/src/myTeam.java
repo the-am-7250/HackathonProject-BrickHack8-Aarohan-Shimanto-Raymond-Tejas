@@ -3,7 +3,7 @@ package src;
  * File Name: myTeam.java
  * @author: Aarohan Mishra
  */
-public class myTeam{
+public class myTeam extends TeamBase implements Team{
     private int Morale;
     private String NAME;
     private double cash;
@@ -19,16 +19,18 @@ public class myTeam{
     public int getMorale(){
         return Morale;
     }
-    public String getTeamName(){
+    @Override
+    public String getName(){
         return NAME;
     }
-    public double getTotalCash(){
+    public double getTotalCost(){
         return cash;
     }
     public int getGamesPlayed(){
         return gamesPlayed;
     }
-    public int getTotalPoints(){
+    @Override
+    public int getPoints(){
         return pointsGained;
     }
     public void addPoints(int points){
