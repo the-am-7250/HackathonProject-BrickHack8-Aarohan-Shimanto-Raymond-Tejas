@@ -1,5 +1,3 @@
-import src.TeamBase;
-
 /**
  * File Name: myTeam.java
  * @author: Aarohan Mishra
@@ -21,10 +19,10 @@ public class myTeam extends TeamBase{
     public int getMorale(){
         return Morale;
     }
-    public String getTeamName(){
+    public String getName(){
         return NAME;
     }
-    public double getTotalCash(){
+    public double getTotalCost(){
         return cash;
     }
     public int getGamesPlayed(){
@@ -38,5 +36,11 @@ public class myTeam extends TeamBase{
     }
     public void gamePlayed(){
         gamesPlayed+=1;
+    }
+    public void affectMorale(int moraleAffect){
+        Morale+= moraleAffect;
+    }
+    public void affectCash(int affectCash){
+        cash+= affectCash;
     }
 }
