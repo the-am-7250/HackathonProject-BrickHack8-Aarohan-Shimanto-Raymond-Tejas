@@ -8,7 +8,7 @@ import java.util.Random;
  * @author: Aarohan Mishra and Shimanto Bhowmik
  */
 public class playGame{
-    private ArrayList<NPCTeam> teams;
+    private ArrayList<Team> teams;
     private Random r;
     private BufferedReader br;
     public playGame()throws IOException{
@@ -44,13 +44,14 @@ public class playGame{
             int indexRandom= r.nextInt(attributes.size());
             String attribute= attributes.remove(indexRandom);
             String name= attribute+" "+animal;
-            NPCTeam e= new NPCTeam(name);
+            Team e= new NPCTeam(name);
             teams.add(e);
         }
     }
     public void createYourTeam()throws IOException{
         System.out.println("Enter the name of your team: ");
         String teamName= br.readLine();
+        teams.add(new myTeam(teamName));
     }
     public int compare(Team a, Team b){
         int result= a.getPoints() - b.getPoints();
@@ -60,8 +61,23 @@ public class playGame{
         return result;
     }
     public void displayTeams(){
-        for(NPCTeam E: teams){
+        for(Team E: teams){
             System.out.println(E.getName());
         }
     }
+    public void sort(){
+        int i,j;
+        int l= teams.size();
+        for(i=0;i<l-1;i++){
+            for(j= i+1;j<l;j++){
+                Team a= teams.remove(i);
+                Team b= teams.remove(j);
+                if(compare(b, a) > 0){
+                    teams.add(i, b);
+                    teams.add(j, a);
+                }
+            }
+        }
+    }
+    //
 }
