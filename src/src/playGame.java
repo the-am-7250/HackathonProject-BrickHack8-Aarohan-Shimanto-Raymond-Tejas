@@ -4,5 +4,7 @@ package src;
  * @author: Aarohan Mishra and Shimanto Bhowmik
  */
 public class playGame {
-    
+    public playGame(){
+        
+    }
 }
