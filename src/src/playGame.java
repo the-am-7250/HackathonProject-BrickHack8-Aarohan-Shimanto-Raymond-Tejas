@@ -363,7 +363,19 @@ public class playGame{
             teams.add(holder[i]);
         }
     }
-    public void terminationLetter(){}
+    public void terminationLetter(){
+        try{
+            BufferedReader fr= new BufferedReader(new FileReader("TerminationLetter.txt"));
+            String s= fr.readLine();
+            while(s!=null){
+                System.out.println(s);
+                s= fr.readLine();
+            }
+        }
+        catch(IOException E){
+            System.err.println(E);
+        }
+    }
     public static void main(String[] args)throws IOException{
         playGame obj= new playGame();
         obj.play();
