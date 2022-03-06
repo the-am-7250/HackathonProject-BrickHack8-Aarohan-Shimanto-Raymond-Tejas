@@ -31,6 +31,10 @@ public class NPCTeam extends TeamBase implements Team{
     public double getTotalCost(){
         return cash;
     }
+    @Override
+    public int getPoints(){
+        return pointsGained;
+    }
     public int getGamesPlayed(){
         return gamesPlayed;
     }

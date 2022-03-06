@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Random;
 /**
  * File name: playGame.java
- * @author: Aarohan Mishra and Shimanto Bhowmik
+ * @author: Aarohan Mishra, Shimanto Bhowmik and Raymond Babich
  */
 public class playGame{
     private ArrayList<Team> teams;
@@ -349,7 +349,7 @@ public class playGame{
             int index= i;
             for(j=i+1;j<size;j++){
                 Team b= holder[j];
-                if(b.getPoints()<= mostPoints.getPoints()){
+                if(b.getPoints()> mostPoints.getPoints()){
                     mostPoints= b;
                     index= j;
                 }
