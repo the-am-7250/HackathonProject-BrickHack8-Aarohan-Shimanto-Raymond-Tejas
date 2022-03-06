@@ -3,7 +3,7 @@ package src;
 
 
 /**
- * File Name: TeamComparator.java
+ * File Name: Team.java
  * @author: Shimanto Bhowmik
  */
 public interface Team  {
