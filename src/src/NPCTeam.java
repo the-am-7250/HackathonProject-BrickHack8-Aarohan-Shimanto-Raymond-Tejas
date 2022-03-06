@@ -41,5 +41,6 @@ public class NPCTeam extends TeamBase implements Team{
     public void affectMorale(int moraleAffect){
         Morale+= moraleAffect;
     }
+    public void affectCash(int cashAffect){}
     
 }

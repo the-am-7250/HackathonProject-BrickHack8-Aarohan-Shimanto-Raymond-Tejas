@@ -12,6 +12,7 @@ public class playGame{
     private ArrayList<Team> teams;
     private Random r;
     private BufferedReader br;
+    private Team playerTeam;
     public playGame()throws IOException{
         teams= new ArrayList<>();
         r= new Random();
@@ -52,7 +53,8 @@ public class playGame{
     public void createYourTeam()throws IOException{
         System.out.println("Enter the name of your team: ");
         String teamName= br.readLine();
-        teams.add(new myTeam(teamName));
+        playerTeam= new myTeam(teamName);
+        teams.add(playerTeam);
     }
     public int compare(Team a, Team b){
         int result= a.getPoints() - b.getPoints();
@@ -88,8 +90,64 @@ public class playGame{
          System.out.println("One of your pleayers is going to jail because of going over the speed limit.");
          System.out.println("Do you want to resolve this issue?(Cash-900, N-Moral-20)(Y/N)");
     }
-    public void situation1(){
+    public void situation1()throws IOException{
         System.out.println("Your coaching team approaches you asking about whether investments can be made to the");
-        System.out.println(" ")
+        System.out.println(" training ground, since some instruments have been found to not be up to the standards");
+        System.out.println(" that the club upholds. Do you want to make these upgrades?");
+        System.out.println();
+        System.out.println(" [Cash: -300");
+        System.out.println("  Team Morale: +10]");
+        System.out.println();
+        System.out.print("(Y/N): ");
+        String ans= br.readLine();
+        while(true){
+            if(ans.compareTo("Y") == 0){
+                teams.get(teams.indexOf(playerTeam)).affectMorale(10);
+                teams.get(teams.indexOf(playerTeam)).affectCash(-300);
+                break;
+            }
+            else if(ans.compareTo("N")==0){
+                teams.get(teams.indexOf(playerTeam)).affectMorale(-5);
+                break;
+            }
+            else{
+                System.out.println("Please enter Y or N. For the sake of this text coaching team. Please");
+                ans= br.readLine();
+            }
+        }
+    }
+    public void situation2()throws IOException{
+        int age= r.nextInt(17, 43);
+        System.out.println("Your assistant manager approaches you with a scouting report, its of a " + age + " years ");
+        System.out.println("old who could be a good boost to our team. I'm not sure about his attitude though, so he could either ");
+        System.out.println("be a great asset or someone who brings the mood down amongst the squad. Final call's up to you though ");
+        System.out.println("for this one. What do you say? Should we sign him up?");
+        System.out.println();
+        System.out.println("[Cash: -700");
+        System.out.println("  Team Morale: +15/-10]");
+        System.out.println();
+        int chance= r.nextInt(2);
+        String ans= br.readLine();
+        while(true){
+            if(ans.compareTo("Y") == 0){
+                int a;
+                if(chance == 0){
+                    a= 15;
+                }
+                else{
+                    a= -10;
+                }
+                teams.get(teams.indexOf(playerTeam)).affectMorale(a);
+                teams.get(teams.indexOf(playerTeam)).affectCash(-700);
+                break;
+            }
+            else if(ans.compareTo("N")==0){
+                break;
+            }
+            else{
+                System.out.println("Please enter Y or N. For the sake of this text coaching team. Please");
+                ans= br.readLine();
+            }
+
     }
 }
