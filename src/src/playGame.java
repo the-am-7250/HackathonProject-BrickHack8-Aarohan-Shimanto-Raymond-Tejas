@@ -7,11 +7,6 @@ import java.util.Random;
  * File name: playGame.java
  * @author: Aarohan Mishra and Shimanto Bhowmik
  */
-
-/**
- * File name: playGame.java
- * @author: Aarohan Mishra and Shimanto Bhowmik
- */
 public class playGame{
     private ArrayList<Team> teams;
     private Random r;
@@ -356,6 +351,7 @@ public class playGame{
             teams.add(i, mostPoints);
             teams.add(index, a);
         }
+        
         for(Team E: teams){
             System.out.println(E.toString());
         }
