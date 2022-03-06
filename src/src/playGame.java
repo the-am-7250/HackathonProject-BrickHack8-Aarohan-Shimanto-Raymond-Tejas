@@ -3,7 +3,6 @@ package src;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
 /**
  * File name: playGame.java
  * @author: Aarohan Mishra and Shimanto Bhowmik
@@ -228,8 +227,78 @@ public class playGame{
             }
         }
     }
-
-    public void playOneMatchDay(){
-        
+    public void playOneMatchday(){
+        ArrayList<Team>team_= teams;
+        while(!team_.isEmpty()){
+            int randomIndex= r.nextInt(team_.size());
+            Team a= team_.remove(randomIndex);
+            randomIndex= r.nextInt(team_.size());
+            Team b= team_.remove(randomIndex);
+            if(a.hasPlayed(b)){
+                while(true){
+                    team_.add(a);
+                    randomIndex= r.nextInt(team_.size());
+                    a= team_.remove(randomIndex);
+                    if(!a.hasPlayed(b)){
+                        break;
+                    }
+                }
+            }
+            else if(b.hasPlayed(a)){
+                while(true){
+                    team_.add(b);
+                    randomIndex= r.nextInt(team_.size());
+                    b= team_.remove(randomIndex);
+                    if(!b.hasPlayed(a)){
+                        break;
+                    }
+                }
+            }
+            else{
+                if(a instanceof myTeam || b instanceof myTeam){
+                    int result= compare(a, b);
+                    if(result>0){
+                        a.addPoints(3);
+                        a.affectMorale(10);
+                        a.affectCash(200);
+                        b.affectMorale(-10);
+                        b.affectCash(-100);
+                    }
+                    else{
+                        b.addPoints(3);
+                        b.affectMorale(10);
+                        b.affectCash(200);
+                        a.affectMorale(-10);
+                        a.affectCash(-100);
+                    }
+                }
+                else{
+                    int res= r.nextInt(3);
+                    if(res == 0){
+                        a.addPoints(3);
+                        a.affectMorale(10);
+                        a.affectCash(200);
+                        b.affectMorale(-10);
+                        b.affectCash(-100);
+                    }
+                    else if(res == 1){
+                        a.addPoints(1);
+                        a.affectMorale(5);
+                        a.affectCash(50);
+                        b.addPoints(1);
+                        b.affectMorale(5);
+                        b.affectCash(50);
+                    }
+                    else{
+                        b.addPoints(3);
+                        b.affectMorale(10);
+                        b.affectCash(200);
+                        a.affectMorale(-10);
+                        a.affectCash(-100);
+                    }
+                }
+            }
+        }
+        team_= teams;
     }
 }
