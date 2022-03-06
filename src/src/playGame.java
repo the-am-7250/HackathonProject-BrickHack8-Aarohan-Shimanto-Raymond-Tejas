@@ -148,6 +148,7 @@ public class playGame{
                 System.out.println("Please enter Y or N. For the sake of this text coaching team. Please");
                 ans= br.readLine();
             }
+        }
 
     }
     public void situation3()throws IOException{
