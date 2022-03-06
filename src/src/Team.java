@@ -22,6 +22,7 @@ public interface Team  {
     public String toString();
     public boolean isCashZero();
     public boolean isMoraleZero();
+    public boolean isPlayerTeam();
 }
 
     
