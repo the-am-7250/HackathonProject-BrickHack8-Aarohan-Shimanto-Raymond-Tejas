@@ -208,8 +208,8 @@ public class playGame{
         System.out.println("One of our players were involved in a speeding violation. It would cause an issue if this situation were to come out to the press.");
         System.out.println("So, we can take care of the issue by spending some money. Final choice is of course, up to you boss");
         System.out.println();
-        System.out.println("[Cash: -900");
-        System.out.println("  Team Morale: +0]");
+        System.out.println("[Cash: -900/0");
+        System.out.println(" [Team Morale: +0/-20]");
         System.out.println();
         String ans= br.readLine();
         while(true){
