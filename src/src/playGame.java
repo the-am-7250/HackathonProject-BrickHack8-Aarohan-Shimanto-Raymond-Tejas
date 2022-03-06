@@ -205,8 +205,9 @@ public class playGame{
         String ans= br.readLine();
         while(true){
             if(ans.compareTo("Y") == 0){  
-                teams.get(teams.indexOf(playerTeam)).affectMorale(0);
-                teams.get(teams.indexOf(playerTeam)).affectCash(-900);
+                int index= teams.indexOf(playerTeam);
+                teams.get(index).affectMorale(0);
+                teams.get(index).affectCash(-900);
                 break;
             }
             else if(ans.compareTo("N")==0){
@@ -294,6 +295,7 @@ public class playGame{
         team_= teams;
     }
     public void play()throws IOException{
+        createYourTeam();
         int i;
         for(i=0;i<10;i++){
             System.out.println("Team Morale: "+playerTeam.getMorale());
