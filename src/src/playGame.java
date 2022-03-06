@@ -349,7 +349,7 @@ public class playGame{
             int index= i;
             for(j=i+1;j<size;j++){
                 Team b= holder[j];
-                if(b.getPoints()>= mostPoints.getPoints()){
+                if(b.getPoints()<= mostPoints.getPoints()){
                     mostPoints= b;
                     index= j;
                 }
