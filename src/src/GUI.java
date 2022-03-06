@@ -1,5 +1,6 @@
 package src;
 
+import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -18,7 +19,7 @@ import java.util.Random;
 
 import static javafx.application.Application.launch;
 
-public class GUI {
+public class GUI extends Application {
     private Random r;
     private String message1 = "Your coaching team approaches you asking about whether\ninvestments can be made to the " +
             "training ground, since some \ninstruments have been found to not be up to the standards \nthat the club upholds." +
@@ -39,8 +40,9 @@ public class GUI {
             " to come out to the press.\nSo, we can take care of the issue by spending some money. Final choice is of course, up to you boss";
     private String effect51 = "-$900";
     private String effect52 = "-20 M";
-
-    public void start(Stage primaryStage, int situation) throws IOException {
+    private int situation;
+    @Override
+    public void start(Stage primaryStage) throws IOException {
         primaryStage.setTitle("Training");
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
@@ -80,10 +82,10 @@ public class GUI {
         }
         else if (situation == 2) {
             int age = r.nextInt(17, 43);
-            Text buyPlayer = new Text(message1);
+            Text buyPlayer = new Text(message2 + age + message3 );
             buyPlayer.setFont(Font.font("Tahoma", FontWeight.NORMAL, 15));
             grid.add(buyPlayer, 0, 0, 2, 1);
-            Text yTrain = new Text(effect1);
+            Text yTrain = new Text(effect2);
             grid.add(yTrain, 0, 2);
             Text nTrain = new Text("No effect");
             grid.add(nTrain, 3, 2);
@@ -95,7 +97,7 @@ public class GUI {
             Yes.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
-                    System.out.println("Training occured");
+                    System.out.println("Good player acquired");
                 }
             });
             Button No = new Button("No");
@@ -106,20 +108,116 @@ public class GUI {
             No.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
-                    System.out.println("Training did not happen");
+                    System.out.println("Good player Skipped");
                 }
             });
         }
+        else if (situation == 3) {
+            int age = r.nextInt(17, 43);
+            Text buyPlayer = new Text(message2 + age + message3 );
+            buyPlayer.setFont(Font.font("Tahoma", FontWeight.NORMAL, 15));
+            grid.add(buyPlayer, 0, 0, 2, 1);
+            Text yTrain = new Text(effect2);
+            grid.add(yTrain, 0, 2);
+            Text nTrain = new Text("No effect");
+            grid.add(nTrain, 3, 2);
+            Button Yes = new Button("Yes");
+            HBox hbBtn = new HBox(10);
+            hbBtn.setAlignment(Pos.BOTTOM_LEFT);
+            hbBtn.getChildren().add(Yes);
+            grid.add(hbBtn, 0, 3);
+            Yes.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    System.out.println("Bad player acquired");
+                }
+            });
+            Button No = new Button("No");
+            HBox hbBtn1 = new HBox(10);
+            hbBtn1.setAlignment(Pos.BOTTOM_RIGHT);
+            hbBtn1.getChildren().add(No);
+            grid.add(hbBtn1, 3, 3);
+            No.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    System.out.println("Bad player skipped");
+                }
+            });
+        }
+        else if (situation == 4) {
+            Text rest = new Text(message4);
+            rest.setFont(Font.font("Tahoma", FontWeight.NORMAL, 15));
+            grid.add(rest, 0, 0, 2, 1);
+            Text yRest = new Text(effect4);
+            grid.add(yRest, 0, 2);
+            Text nRest = new Text("No effect");
+            grid.add(nRest, 3, 2);
+            Button Yes = new Button("Yes");
+            HBox hbBtn = new HBox(10);
+            hbBtn.setAlignment(Pos.BOTTOM_LEFT);
+            hbBtn.getChildren().add(Yes);
+            grid.add(hbBtn, 0, 3);
+            Yes.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    System.out.println("Rest taken");
+                }
+            });
+            Button No = new Button("No");
+            HBox hbBtn1 = new HBox(10);
+            hbBtn1.setAlignment(Pos.BOTTOM_RIGHT);
+            hbBtn1.getChildren().add(No);
+            grid.add(hbBtn1, 3, 3);
+            No.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    System.out.println("Rest skipped");
+                }
+            });
+        }
+        else if (situation == 5) {
+            int age = r.nextInt(17, 43);
+            Text scandal = new Text(message5);
+            scandal.setFont(Font.font("Tahoma", FontWeight.NORMAL, 15));
+            grid.add(scandal, 0, 0, 2, 1);
+            Text handle = new Text(effect51);
+            grid.add(handle, 0, 2);
+            Text ignore = new Text(effect52);
+            grid.add(ignore, 3, 2);
+            Button Yes = new Button("Yes");
+            HBox hbBtn = new HBox(10);
+            hbBtn.setAlignment(Pos.BOTTOM_LEFT);
+            hbBtn.getChildren().add(Yes);
+            grid.add(hbBtn, 0, 3);
+            Yes.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    System.out.println("Scandal handled");
+                }
+            });
+            Button No = new Button("No");
+            HBox hbBtn1 = new HBox(10);
+            hbBtn1.setAlignment(Pos.BOTTOM_RIGHT);
+            hbBtn1.getChildren().add(No);
+            grid.add(hbBtn1, 3, 3);
+            No.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    System.out.println("Scandal ignored");
+                }
+            });
+        }
+
         Scene scene = new Scene(grid, 500, 275);
         primaryStage.setScene(scene);
-        scene.getStylesheets().add
-                (src.Actions.class.getResource("GameStyle.css").toExternalForm());
         primaryStage.show();
     }
 
     public static void main(String[] args) {
-        System.out.println("Test");
         launch();
     }
 }
+
+
+
 
