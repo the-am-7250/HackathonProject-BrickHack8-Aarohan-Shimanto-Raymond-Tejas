@@ -13,11 +13,8 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.util.Random;
-
-import static javafx.application.Application.launch;
 
 public class GUI extends Application {
     private Random r;
@@ -126,23 +123,13 @@ public class GUI extends Application {
             hbBtn.setAlignment(Pos.BOTTOM_LEFT);
             hbBtn.getChildren().add(Yes);
             grid.add(hbBtn, 0, 3);
-            Yes.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent actionEvent) {
-                    System.out.println("Bad player acquired");
-                }
-            });
+            Yes.setOnAction( actionEvent -> {System.out.println("Bad player acquired");});
             Button No = new Button("No");
             HBox hbBtn1 = new HBox(10);
             hbBtn1.setAlignment(Pos.BOTTOM_RIGHT);
             hbBtn1.getChildren().add(No);
             grid.add(hbBtn1, 3, 3);
-            No.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent actionEvent) {
-                    System.out.println("Bad player skipped");
-                }
-            });
+            No.setOnAction( actionEvent -> {System.out.println("Bad player skipped");});
         }
         else if (situation == 4) {
             Text rest = new Text(message4);
@@ -157,23 +144,14 @@ public class GUI extends Application {
             hbBtn.setAlignment(Pos.BOTTOM_LEFT);
             hbBtn.getChildren().add(Yes);
             grid.add(hbBtn, 0, 3);
-            Yes.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent actionEvent) {
-                    System.out.println("Rest taken");
-                }
-            });
+            Yes.setOnAction( actionEvent -> {
+                    System.out.println("Rest taken");});
             Button No = new Button("No");
             HBox hbBtn1 = new HBox(10);
             hbBtn1.setAlignment(Pos.BOTTOM_RIGHT);
             hbBtn1.getChildren().add(No);
             grid.add(hbBtn1, 3, 3);
-            No.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent actionEvent) {
-                    System.out.println("Rest skipped");
-                }
-            });
+            No.setOnAction(actionEvent -> {System.out.println("Rest skipped");});
         }
         else if (situation == 5) {
             int age = r.nextInt(17, 43);
@@ -189,23 +167,13 @@ public class GUI extends Application {
             hbBtn.setAlignment(Pos.BOTTOM_LEFT);
             hbBtn.getChildren().add(Yes);
             grid.add(hbBtn, 0, 3);
-            Yes.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent actionEvent) {
-                    System.out.println("Scandal handled");
-                }
-            });
+            Yes.setOnAction( actionEvent -> {System.out.println("Scandal handled");});
             Button No = new Button("No");
             HBox hbBtn1 = new HBox(10);
             hbBtn1.setAlignment(Pos.BOTTOM_RIGHT);
             hbBtn1.getChildren().add(No);
             grid.add(hbBtn1, 3, 3);
-            No.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent actionEvent) {
-                    System.out.println("Scandal ignored");
-                }
-            });
+            No.setOnAction(actionEvent -> {System.out.println("Scandal ignored");});
         }
 
         Scene scene = new Scene(grid, 500, 275);
