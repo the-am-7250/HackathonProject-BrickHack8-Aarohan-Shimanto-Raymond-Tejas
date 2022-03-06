@@ -91,12 +91,7 @@ public class GUI extends Application {
             hbBtn.setAlignment(Pos.BOTTOM_LEFT);
             hbBtn.getChildren().add(Yes);
             grid.add(hbBtn, 0, 3);
-            Yes.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent actionEvent) {
-                    System.out.println("Good player acquired");
-                }
-            });
+            Yes.setOnAction(actionEvent -> {System.out.println("Good player acquired");});
             Button No = new Button("No");
             HBox hbBtn1 = new HBox(10);
             hbBtn1.setAlignment(Pos.BOTTOM_RIGHT);
