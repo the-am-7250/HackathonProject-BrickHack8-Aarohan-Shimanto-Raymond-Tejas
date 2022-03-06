@@ -293,4 +293,29 @@ public class playGame{
         }
         team_= teams;
     }
+    public void play()throws IOException{
+        int i;
+        for(i=0;i<10;i++){
+            int j=0;
+            for(j=0;j<2;j++){
+               int randomIndex= r.nextInt(100);
+                if(randomIndex == 47){
+                    situation5();
+                }
+                else if(randomIndex%5 == 0){
+                    situation2();
+                }
+                else if(randomIndex%7 == 0){
+                    situation4();
+                }
+                else if(randomIndex%3 == 0){
+                    situation3();
+                }
+                else{
+                    situation1();
+                }
+            }
+            playOneMatchday();
+        }
+    }
 }
