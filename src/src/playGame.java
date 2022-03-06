@@ -234,6 +234,7 @@ public class playGame{
                         a.affectCash(200);
                         b.affectMorale(-10);
                         b.affectCash(-100);
+                        System.out.println(a.getName()+" won against "+b.getName());
                     }
                     else{
                         b.addPoints(3);
@@ -241,6 +242,7 @@ public class playGame{
                         b.affectCash(200);
                         a.affectMorale(-10);
                         a.affectCash(-100);
+                        System.out.println(b.getName()+" won against "+a.getName());
                     }
                 }
                 else{
@@ -251,6 +253,7 @@ public class playGame{
                         a.affectCash(200);
                         b.affectMorale(-10);
                         b.affectCash(-100);
+                        System.out.println(a.getName()+" won against "+b.getName());
                     }
                     else if(res == 1){
                         a.addPoints(1);
@@ -259,6 +262,7 @@ public class playGame{
                         b.addPoints(1);
                         b.affectMorale(5);
                         b.affectCash(50);
+                        System.out.println(a.getName()+" drew with "+b.getName());
                     }
                     else{
                         b.addPoints(3);
@@ -266,6 +270,7 @@ public class playGame{
                         b.affectCash(200);
                         a.affectMorale(-10);
                         a.affectCash(-100);
+                        System.out.println(b.getName()+" won against "+a.getName());
                     }
                 }
             }
@@ -274,7 +279,7 @@ public class playGame{
     public void play()throws IOException{
         createYourTeam();
         int i;
-        for(i=0;i<10;i++){
+        for(i=1;i<10;i++){
             if(playerTeam.isCashZero()|| playerTeam.isMoraleZero()){
                 terminationLetter();
                 break;
@@ -302,7 +307,7 @@ public class playGame{
             }
             playOneMatchday();
             System.out.println("Table after Matchday "+ i+": ");
-            sort();
+            sortTeams();
             displayTeams();
         }
     }
