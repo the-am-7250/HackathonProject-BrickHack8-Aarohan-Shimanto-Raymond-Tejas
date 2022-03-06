@@ -148,9 +148,40 @@ public class playGame{
                 System.out.println("Please enter Y or N. For the sake of this text coaching team. Please");
                 ans= br.readLine();
             }
+        }
 
     }
     public void situation3()throws IOException{
+        int age= r.nextInt(17, 43);
+        System.out.println("Your assistant manager approaches you with a scouting report, its of a team player with" + age + " years ");
+        System.out.println("We could sell this player, and earn some money for other improvements. But it would affect the team morale though. ");
+        System.out.println("for this one. What do you say? Should we sell him?");
+        System.out.println();
+        System.out.println("[Cash: +700");
+        System.out.println("  Team Morale: -10]");
+        System.out.println();
+        int chance= r.nextInt(2);
+        String ans= br.readLine();
+        while(true){
+            if(ans.compareTo("Y") == 0){
+                int a;
+                if(chance == 0)
+                    a= -10;     
+                teams.get(teams.indexOf(playerTeam)).affectMorale(a);
+                teams.get(teams.indexOf(playerTeam)).affectCash(700);
+                break;
+            }
+            else if(ans.compareTo("N")==0){
+                break;
+            }
+            else{
+                System.out.println("Please enter Y or N. For the sake of this text coaching team. Please");
+                ans= br.readLine();
+            }
+        }
+
+    }
+    public void situation4()throws IOException{
         int age= r.nextInt(17, 43);
         System.out.println("Your assistant manager approaches you with a scouting report, its of a team player with" + age + " years ");
         System.out.println("We could sell this player, and earn some money for other improvements. But it would affect the team morale though. ");
