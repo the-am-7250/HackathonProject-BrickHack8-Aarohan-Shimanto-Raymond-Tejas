@@ -54,7 +54,7 @@ public class NPCTeam extends TeamBase implements Team{
         return playCounter.containsValue(a);
     }
     public String toString(){
-        return getName() + " "+getPoints();
+        return getName() + " "+getTotalPoints();
     }
     public boolean isCashZero(){
         boolean bool = false;
