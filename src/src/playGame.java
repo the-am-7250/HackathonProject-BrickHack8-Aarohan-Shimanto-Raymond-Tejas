@@ -337,7 +337,7 @@ public class playGame{
             }
             playOneMatchday();
             System.out.println("Table after Matchday "+ i+": ");
-            sort();
+            sortTeams();
             displayTeams();
         }
     }
