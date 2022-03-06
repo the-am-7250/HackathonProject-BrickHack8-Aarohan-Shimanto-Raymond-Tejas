@@ -76,23 +76,13 @@ public class GUI extends Application {
             hbBtn.setAlignment(Pos.BOTTOM_LEFT);
             hbBtn.getChildren().add(Yes);
             grid.add(hbBtn, 0, 3);
-            Yes.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent actionEvent) {
-                    ans = true;
-                }
-            });
+            Yes.setOnAction(actionEvent -> ans = true);
             Button No = new Button("No");
             HBox hbBtn1 = new HBox(10);
             hbBtn1.setAlignment(Pos.BOTTOM_RIGHT);
             hbBtn1.getChildren().add(No);
             grid.add(hbBtn1, 3, 3);
-            No.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent actionEvent) {
-                    ans = false;
-                }
-            });
+            No.setOnAction(actionEvent -> ans = false);
         }
         else if (situation == 2) {
             int age = r.nextInt(17, 43);
@@ -108,23 +98,13 @@ public class GUI extends Application {
             hbBtn.setAlignment(Pos.BOTTOM_LEFT);
             hbBtn.getChildren().add(Yes);
             grid.add(hbBtn, 0, 3);
-            Yes.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent actionEvent) {
-                    ans = true;
-                }
-            });
+            Yes.setOnAction(actionEvent -> ans = true);
             Button No = new Button("No");
             HBox hbBtn1 = new HBox(10);
             hbBtn1.setAlignment(Pos.BOTTOM_RIGHT);
             hbBtn1.getChildren().add(No);
             grid.add(hbBtn1, 3, 3);
-            No.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent actionEvent) {
-                    ans = false;
-                }
-            });
+            No.setOnAction(actionEvent -> ans = false);
         }
         else if (situation == 3) {
             int age = r.nextInt(17, 43);
@@ -140,23 +120,13 @@ public class GUI extends Application {
             hbBtn.setAlignment(Pos.BOTTOM_LEFT);
             hbBtn.getChildren().add(Yes);
             grid.add(hbBtn, 0, 3);
-            Yes.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent actionEvent) {
-                    ans = true;
-                }
-            });
+            Yes.setOnAction(actionEvent -> ans = true);
             Button No = new Button("No");
             HBox hbBtn1 = new HBox(10);
             hbBtn1.setAlignment(Pos.BOTTOM_RIGHT);
             hbBtn1.getChildren().add(No);
             grid.add(hbBtn1, 3, 3);
-            No.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent actionEvent) {
-                    ans = false;
-                }
-            });
+            No.setOnAction(actionEvent -> ans = false);
         }
         else if (situation == 4) {
             Text rest = new Text(message4);
@@ -171,23 +141,17 @@ public class GUI extends Application {
             hbBtn.setAlignment(Pos.BOTTOM_LEFT);
             hbBtn.getChildren().add(Yes);
             grid.add(hbBtn, 0, 3);
-            Yes.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent actionEvent) {
-                    ans = true;
-                }
-            });
+            Yes.setOnAction(actionEvent -> ans = true);
             Button No = new Button("No");
             HBox hbBtn1 = new HBox(10);
             hbBtn1.setAlignment(Pos.BOTTOM_RIGHT);
             hbBtn1.getChildren().add(No);
             grid.add(hbBtn1, 3, 3);
-            No.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent actionEvent) {
+            No.setOnAction(
+                (actionEvent) ->{
                     ans = false;
                 }
-            });
+            );
         }
         else if (situation == 5) {
             int age = r.nextInt(17, 43);
@@ -203,23 +167,13 @@ public class GUI extends Application {
             hbBtn.setAlignment(Pos.BOTTOM_LEFT);
             hbBtn.getChildren().add(Yes);
             grid.add(hbBtn, 0, 3);
-            Yes.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent actionEvent) {
-                    ans = true;
-                }
-            });
+            Yes.setOnAction(actionEvent -> ans = true);
             Button No = new Button("No");
             HBox hbBtn1 = new HBox(10);
             hbBtn1.setAlignment(Pos.BOTTOM_RIGHT);
             hbBtn1.getChildren().add(No);
             grid.add(hbBtn1, 3, 3);
-            No.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent actionEvent) {
-                    ans = false;
-                }
-            });
+            No.setOnAction(actionEvent -> ans = false);
         }
 
         Scene scene = new Scene(grid, 500, 275);
