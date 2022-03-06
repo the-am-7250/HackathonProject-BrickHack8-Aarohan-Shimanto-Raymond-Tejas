@@ -20,11 +20,12 @@ import java.util.Random;
 import static javafx.application.Application.launch;
 
 public class GUI extends Application {
-    private Random r;
+    private static final Random r = new Random();
     private String message1 = "Your coaching team approaches you asking about whether\ninvestments can be made to the " +
             "training ground, since some \ninstruments have been found to not be up to the standards \nthat the club upholds." +
             " Do you want to make these upgrades?";
-    private String effect1 = "-$300 & +10 M";
+    private String effect11 = "-$300 & +10 M";
+    private String effect12 = "-5 M";
     private String message2 = "Your assistant manager approaches you with a scouting report, its of a ";
     private String message21 = " years \nold who could be a good boost to our team. I'm not sure about his attitude though, so" +
             " he could either \nbe a great asset or someone who brings the mood down amongst the squad. Final call's up to you though" +
@@ -38,7 +39,8 @@ public class GUI extends Application {
             "training this last week, and we're all burnt out because of it.\nWe were wondering if it were possible for us to get" +
             " the day off from training. I know \nthis is last minute, and would result in the team having a lit of loss in terms" +
             " of money,\nbut its something we would all benefit from greatly. Final choice is of course, up to you boss";
-    private String effect4 = "-$60 & +5 M";
+    private String effect41 = "-$60 & +5 M";
+    private String effect42 = "-5";
     private String message5 = "Hey boss, wanted to make an ask of something.Just wanted to tell you about a dispute that occured" +
             " recently.\nOne of our players were involved in a speeding violation. It would cause an issue if this situation were" +
             " to come out to the press.\nSo, we can take care of the issue by spending some money. Final choice is of course, up to you boss";
@@ -46,17 +48,16 @@ public class GUI extends Application {
     private String effect52 = "-20 M";
     private int situation;
     private boolean ans;
-    public GUI (int situation){
+    public void getSituation(int situation){
         this.situation = situation;
     }
-
     public boolean getAns() {
         return ans;
     }
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        primaryStage.setTitle("Training");
+        primaryStage.setTitle("Action");
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
         grid.setHgap(10);
@@ -66,9 +67,9 @@ public class GUI extends Application {
             Text training = new Text(message1);
             training.setFont(Font.font("Tahoma", FontWeight.NORMAL, 15));
             grid.add(training, 0, 0, 2, 1);
-            Text yTrain = new Text(effect1);
+            Text yTrain = new Text(effect11);
             grid.add(yTrain, 0, 2);
-            Text nTrain = new Text("No effect");
+            Text nTrain = new Text(effect12);
             grid.add(nTrain, 3, 2);
             Button Yes = new Button("Yes");
             HBox hbBtn = new HBox(10);
@@ -78,7 +79,7 @@ public class GUI extends Application {
             Yes.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
-                    System.out.println("Training occured");
+                    ans = true;
                 }
             });
             Button No = new Button("No");
@@ -89,7 +90,7 @@ public class GUI extends Application {
             No.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
-                    System.out.println("Training did not happen");
+                    ans = false;
                 }
             });
         }
@@ -110,7 +111,7 @@ public class GUI extends Application {
             Yes.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
-                    System.out.println("Good player acquired");
+                    ans = true;
                 }
             });
             Button No = new Button("No");
@@ -121,7 +122,7 @@ public class GUI extends Application {
             No.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
-                    System.out.println("Good player Skipped");
+                    ans = false;
                 }
             });
         }
@@ -142,7 +143,7 @@ public class GUI extends Application {
             Yes.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
-                    System.out.println("Bad player acquired");
+                    ans = true;
                 }
             });
             Button No = new Button("No");
@@ -153,7 +154,7 @@ public class GUI extends Application {
             No.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
-                    System.out.println("Bad player skipped");
+                    ans = false;
                 }
             });
         }
@@ -161,7 +162,7 @@ public class GUI extends Application {
             Text rest = new Text(message4);
             rest.setFont(Font.font("Tahoma", FontWeight.NORMAL, 15));
             grid.add(rest, 0, 0, 2, 1);
-            Text yRest = new Text(effect4);
+            Text yRest = new Text(effect41);
             grid.add(yRest, 0, 2);
             Text nRest = new Text("No effect");
             grid.add(nRest, 3, 2);
@@ -173,7 +174,7 @@ public class GUI extends Application {
             Yes.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
-                    System.out.println("Rest taken");
+                    ans = true;
                 }
             });
             Button No = new Button("No");
@@ -184,7 +185,7 @@ public class GUI extends Application {
             No.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
-                    System.out.println("Rest skipped");
+                    ans = false;
                 }
             });
         }
@@ -205,7 +206,7 @@ public class GUI extends Application {
             Yes.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
-                    System.out.println("Scandal handled");
+                    ans = true;
                 }
             });
             Button No = new Button("No");
@@ -216,7 +217,7 @@ public class GUI extends Application {
             No.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
-                    System.out.println("Scandal ignored");
+                    ans = false;
                 }
             });
         }
@@ -227,6 +228,7 @@ public class GUI extends Application {
     }
 
     public static void main(String[] args) {
+
         launch();
     }
 }
