@@ -26,10 +26,14 @@ public class GUI extends Application {
             " Do you want to make these upgrades?";
     private String effect1 = "-$300 & +10 M";
     private String message2 = "Your assistant manager approaches you with a scouting report, its of a ";
-    private String message3 = " years \nold who could be a good boost to our team. I'm not sure about his attitude though, so" +
+    private String message21 = " years \nold who could be a good boost to our team. I'm not sure about his attitude though, so" +
             " he could either \nbe a great asset or someone who brings the mood down amongst the squad. Final call's up to you though" +
             " \nfor this one. What do you say? Should we sign him up?";
     private String effect2 = "-$700 & +15 M or -10 M";
+    private String message3 = "Your assistant manager approaches you with a scouting report, its of a team player with ";
+    private String message31 = " years\nWe could sell this player, and earn some money for other improvements. But it would affect the" +
+            " team morale though. \nfor this one. What do you say? Should we sell him?";
+    private String effect3 = "+700 & -10 M";
     private String message4 = "Hey boss, wanted to make an ask of something. The lads and I have been working \npretty hard in " +
             "training this last week, and we're all burnt out because of it.\nWe were wondering if it were possible for us to get" +
             " the day off from training. I know \nthis is last minute, and would result in the team having a lit of loss in terms" +
@@ -41,6 +45,13 @@ public class GUI extends Application {
     private String effect51 = "-$900";
     private String effect52 = "-20 M";
     private int situation;
+    private boolean ans;
+    public GUI (int situation){
+        this.situation = situation;
+    }
+    public boolean getAns(){
+        return ans;
+    }
     @Override
     public void start(Stage primaryStage) throws IOException {
         primaryStage.setTitle("Training");
@@ -65,7 +76,7 @@ public class GUI extends Application {
             Yes.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
-                    System.out.println("Training occured");
+                    ans = true;
                 }
             });
             Button No = new Button("No");
@@ -76,7 +87,7 @@ public class GUI extends Application {
             No.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
-                    System.out.println("Training did not happen");
+                    ans = false;
                 }
             });
         }
@@ -97,7 +108,7 @@ public class GUI extends Application {
             Yes.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
-                    System.out.println("Good player acquired");
+                    ans = true;
                 }
             });
             Button No = new Button("No");
@@ -108,16 +119,16 @@ public class GUI extends Application {
             No.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
-                    System.out.println("Good player Skipped");
+                    ans = false;
                 }
             });
         }
         else if (situation == 3) {
             int age = r.nextInt(17, 43);
-            Text buyPlayer = new Text(message2 + age + message3 );
+            Text buyPlayer = new Text(message3 + age + message31 );
             buyPlayer.setFont(Font.font("Tahoma", FontWeight.NORMAL, 15));
             grid.add(buyPlayer, 0, 0, 2, 1);
-            Text yTrain = new Text(effect2);
+            Text yTrain = new Text(effect3);
             grid.add(yTrain, 0, 2);
             Text nTrain = new Text("No effect");
             grid.add(nTrain, 3, 2);
@@ -129,7 +140,7 @@ public class GUI extends Application {
             Yes.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
-                    System.out.println("Bad player acquired");
+                    ans = true;
                 }
             });
             Button No = new Button("No");
@@ -140,7 +151,7 @@ public class GUI extends Application {
             No.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
-                    System.out.println("Bad player skipped");
+                    ans = false;
                 }
             });
         }
@@ -160,7 +171,7 @@ public class GUI extends Application {
             Yes.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
-                    System.out.println("Rest taken");
+                    ans = true;
                 }
             });
             Button No = new Button("No");
@@ -171,7 +182,7 @@ public class GUI extends Application {
             No.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
-                    System.out.println("Rest skipped");
+                    ans = false;
                 }
             });
         }
@@ -192,7 +203,7 @@ public class GUI extends Application {
             Yes.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
-                    System.out.println("Scandal handled");
+                    ans = true;
                 }
             });
             Button No = new Button("No");
@@ -203,7 +214,7 @@ public class GUI extends Application {
             No.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
-                    System.out.println("Scandal ignored");
+                    ans = false;
                 }
             });
         }

@@ -82,67 +82,37 @@ public class playGame{
         }
     }
     public void situation1()throws IOException{
-        System.out.println("Your coaching team approaches you asking about whether investments can be made to the");
-        System.out.println(" training ground, since some instruments have been found to not be up to the standards");
-        System.out.println(" that the club upholds. Do you want to make these upgrades?");
-        System.out.println();
-        System.out.println(" [Cash: -300");
-        System.out.println("  Team Morale: +10]");
-        System.out.println();
-        System.out.print("(Y/N): ");
-        String ans= br.readLine();
-        while(true){
-            int x= teams.indexOf(playerTeam);
-            if(ans.compareTo("Y") == 0){
-                teams.get(x).affectMorale(10);
-                teams.get(x).affectCash(-300);
-                break;
-            }
-            else if(ans.compareTo("N")==0){
-                teams.get(x).affectMorale(-5);
-                break;
-            }
-            else{
-                System.out.println("Please enter Y or N. For the sake of this text coaching team. Please");
-                ans= br.readLine();
-            }
+        GUI sit1 = new GUI(1);
+        boolean ans = sit1.getAns();
+        int x= teams.indexOf(playerTeam);
+        if(ans){
+            teams.get(x).affectMorale(10);
+            teams.get(x).affectCash(-300);
+        }
+        else{
+            teams.get(x).affectMorale(-5);
         }
     }
     public void situation2()throws IOException{
-        int age= r.nextInt(17, 43);
-        System.out.println("Your assistant manager approaches you with a scouting report, its of a " + age + " years ");
-        System.out.println("old who could be a good boost to our team. I'm not sure about his attitude though, so he could either ");
-        System.out.println("be a great asset or someone who brings the mood down amongst the squad. Final call's up to you though ");
-        System.out.println("for this one. What do you say? Should we sign him up?");
-        System.out.println();
-        System.out.println("[Cash: -700");
-        System.out.println("  Team Morale: +15/-10]");
-        System.out.println();
+        GUI sit2 = new GUI(2);
         int chance= r.nextInt(2);
-        String ans= br.readLine();
-        while(true){
-            if(ans.compareTo("Y") == 0){
-                int a;
-                if(chance == 0){
-                    a= 15;
-                }
-                else{
-                    a= -10;
-                }
-                int x= teams.indexOf(playerTeam);
-                teams.get(x).affectMorale(a);
-                teams.get(x).affectCash(-700);
-                break;
-            }
-            else if(ans.compareTo("N")==0){
-                break;
+        boolean ans = sit2.getAns();
+        if(ans){
+            int a;
+            if(chance == 0){
+                a= 15;
             }
             else{
-                System.out.println("Please enter Y or N. For the sake of this text coaching team, please");
-                ans= br.readLine();
+                a= -10;
             }
-        }
+            int x= teams.indexOf(playerTeam);
+            teams.get(x).affectMorale(a);
+            teams.get(x).affectCash(-700);
 
+        }
+        else{
+
+        }
     }
     public void situation3()throws IOException{
         int age= r.nextInt(17, 43);
@@ -155,7 +125,7 @@ public class playGame{
         System.out.println();
         String ans= br.readLine();
         while(true){
-            if(ans.compareTo("Y") == 0){ 
+            if(ans.compareTo("Y") == 0){
                 int x= teams.indexOf(playerTeam);
                 teams.get(x).affectMorale(-10);
                 teams.get(x).affectCash(700);
