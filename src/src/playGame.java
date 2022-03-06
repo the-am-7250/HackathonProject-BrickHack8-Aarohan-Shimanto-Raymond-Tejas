@@ -296,6 +296,8 @@ public class playGame{
     public void play()throws IOException{
         int i;
         for(i=0;i<10;i++){
+            System.out.println("Team Morale: "+playerTeam.getMorale());
+            System.out.println("Total money left: "+ playerTeam.getTotalCost());
             int j=0;
             for(j=0;j<2;j++){
                int randomIndex= r.nextInt(100);
@@ -317,5 +319,9 @@ public class playGame{
             }
             playOneMatchday();
         }
+    }
+    public static void main(String[] args)throws IOException{
+        playGame obj= new playGame();
+        obj.play();
     }
 }
