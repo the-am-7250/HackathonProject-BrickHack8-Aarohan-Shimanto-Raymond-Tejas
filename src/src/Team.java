@@ -19,6 +19,7 @@ public interface Team  {
     public void affectCash(int cashAffect);
     public void updatePlayCounter(Team a);
     public boolean hasPlayed(Team a);
+    public String toString();
     }
     
 

@@ -53,4 +53,7 @@ public class NPCTeam extends TeamBase implements Team{
     public boolean hasPlayed(Team a){
         return playCounter.containsValue(a);
     }
+    public String toString(){
+        return getName() + " "+getPoints();
+    }
 }
