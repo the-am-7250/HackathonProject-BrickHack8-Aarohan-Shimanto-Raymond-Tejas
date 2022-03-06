@@ -1,6 +1,7 @@
 package src;
 
 import java.io.*;
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.Random;
 /**
@@ -339,20 +340,23 @@ public class playGame{
         int i,j;
         int size= teams.size();
         Team[] holder= new Team[size];
+        for(i=0;i<size;i++){
+            holder[i]= teams.get(i);
+        }
         for(i=0;i<size-1;i++){
             Team a= holder[i];
             Team mostPoints= a;
             int index= i;
             for(j=i+1;j<size;j++){
                 Team b= holder[j];
-                if(b.getPoints()> mostPoints.getPoints()){
+                if(b.getPoints()>= mostPoints.getPoints()){
                     mostPoints= b;
                     index= j;
                 }
             }
             Team temp= holder[i];
             holder[i]= holder[index];
-            holder[index]= holder[i];
+            holder[index]= temp;
         }
         teams= new ArrayList<>();
         for(i=0;i<size;i++){
