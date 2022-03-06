@@ -331,6 +331,26 @@ public class playGame{
                 }
             }
             playOneMatchday();
+            System.out.println("Table after Matchday "+ i+": ");
+            sort();
+            displayTeams();
+        }
+    }
+    public void sortTeams(){
+        int i,j;
+        for(i=0;i<teams.size()-1;i++){
+            Team a= teams.get(i);
+            Team mostPoints= a;
+            int index= i;
+            for(j=i+1;j<teams.size();j++){
+                Team b= teams.get(j);
+                if(b.getPoints()> mostPoints.getPoints()){
+                    mostPoints= b;
+                    index= j;
+                }
+            }
+            teams.add(i, mostPoints);
+            teams.add(index, a);
         }
     }
     public void terminationLetter(){}
