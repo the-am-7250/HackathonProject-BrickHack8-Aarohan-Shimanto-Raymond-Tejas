@@ -7,6 +7,11 @@ import java.util.Random;
  * File name: playGame.java
  * @author: Aarohan Mishra and Shimanto Bhowmik
  */
+
+/**
+ * File name: playGame.java
+ * @author: Aarohan Mishra and Shimanto Bhowmik
+ */
 public class playGame{
     private ArrayList<Team> teams;
     private Random r;
@@ -19,22 +24,22 @@ public class playGame{
         ArrayList<String> animalNames= new ArrayList<>();
         ArrayList<String> attributes= new ArrayList<>();
         try{
-        BufferedReader fr1= new BufferedReader(new FileReader("AnimalNames.txt"));
-        String s1= fr1.readLine();
-        while(s1!=null){
-            animalNames.add(s1);
-            s1= fr1.readLine();
-        }
+            BufferedReader fr1= new BufferedReader(new FileReader("AnimalNames.txt"));
+            String s1= fr1.readLine();
+            while(s1!=null){
+                animalNames.add(s1);
+                s1= fr1.readLine();
+            }
         }catch(IOException E){
             System.err.println(E);
         }
         try{
-        BufferedReader fr2= new BufferedReader(new FileReader("Attributes.txt"));
-        String s2= fr2.readLine();
-        while(s2!= null){
-            attributes.add(s2);
-            s2= fr2.readLine();
-        }
+            BufferedReader fr2= new BufferedReader(new FileReader("Attributes.txt"));
+            String s2= fr2.readLine();
+            while(s2!= null){
+                attributes.add(s2);
+                s2= fr2.readLine();
+            }
         }catch(IOException E){
             System.err.println(E);
         }
@@ -82,41 +87,70 @@ public class playGame{
         }
     }
     public void situation1()throws IOException{
-        GUI sit1 = new GUI(1);
-        boolean ans = sit1.getAns();
-        int x= teams.indexOf(playerTeam);
-        if(ans){
-            teams.get(x).affectMorale(10);
-            teams.get(x).affectCash(-300);
-        }
-        else{
-            teams.get(x).affectMorale(-5);
+        System.out.println("Your coaching team approaches you asking about whether investments can be made to the");
+        System.out.println(" training ground, since some instruments have been found to not be up to the standards");
+        System.out.println(" that the club upholds. Do you want to make these upgrades?");
+        System.out.println();
+        System.out.println(" [Cash: -300");
+        System.out.println("  Team Morale: +10]");
+        System.out.println();
+        System.out.print("(Y/N): ");
+        String ans= br.readLine();
+        while(true){
+            int x= teams.indexOf(playerTeam);
+            if(ans.compareTo("Y") == 0){
+                teams.get(x).affectMorale(10);
+                teams.get(x).affectCash(-300);
+                break;
+            }
+            else if(ans.compareTo("N")==0){
+                teams.get(x).affectMorale(-5);
+                break;
+            }
+            else{
+                System.out.println("Please enter Y or N. For the sake of this text coaching team. Please");
+                ans= br.readLine();
+            }
         }
     }
     public void situation2()throws IOException{
-        GUI sit2 = new GUI(2);
+        int age= r.nextInt(17, 43);
+        System.out.println("Your assistant manager approaches you with a scouting report, its of a " + age + " years ");
+        System.out.println("old who could be a good boost to our team. I'm not sure about his attitude though, so he could either ");
+        System.out.println("be a great asset or someone who brings the mood down amongst the squad. Final call's up to you though ");
+        System.out.println("for this one. What do you say? Should we sign him up?");
+        System.out.println();
+        System.out.println("[Cash: -700");
+        System.out.println("  Team Morale: +15/-10]");
+        System.out.println();
         int chance= r.nextInt(2);
-        boolean ans = sit2.getAns();
-        if(ans){
-            int a;
-            if(chance == 0){
-                a= 15;
+        String ans= br.readLine();
+        while(true){
+            if(ans.compareTo("Y") == 0){
+                int a;
+                if(chance == 0){
+                    a= 15;
+                }
+                else{
+                    a= -10;
+                }
+                int x= teams.indexOf(playerTeam);
+                teams.get(x).affectMorale(a);
+                teams.get(x).affectCash(-700);
+                break;
+            }
+            else if(ans.compareTo("N")==0){
+                break;
             }
             else{
-                a= -10;
+                System.out.println("Please enter Y or N. For the sake of this text coaching team, please");
+                ans= br.readLine();
             }
-            int x= teams.indexOf(playerTeam);
-            teams.get(x).affectMorale(a);
-            teams.get(x).affectCash(-700);
-
-        }
-        else{
-
         }
     }
     public void situation3()throws IOException{
         int age= r.nextInt(17, 43);
-        System.out.println("Your assistant manager approaches you with a scouting report, its of a team player with " + age + " years ");
+        System.out.println("Your assistant manager approaches you with a scouting report, its of a team player with" + age + " years ");
         System.out.println("We could sell this player, and earn some money for other improvements. But it would affect the team morale though. ");
         System.out.println("for this one. What do you say? Should we sell him?");
         System.out.println();
@@ -152,7 +186,7 @@ public class playGame{
         System.out.println();
         String ans= br.readLine();
         while(true){
-            if(ans.compareTo("Y") == 0){  
+            if(ans.compareTo("Y") == 0){
                 int x= teams.indexOf(playerTeam);
                 teams.get(x).affectMorale(5);
                 teams.get(x).affectCash(-100);
@@ -178,7 +212,7 @@ public class playGame{
         System.out.println();
         String ans= br.readLine();
         while(true){
-            if(ans.compareTo("Y") == 0){  
+            if(ans.compareTo("Y") == 0){
                 int index= teams.indexOf(playerTeam);
                 teams.get(index).affectMorale(0);
                 teams.get(index).affectCash(-900);
@@ -226,7 +260,7 @@ public class playGame{
                 }
             }
             else{
-                if(a.isPlayerTeam() || b.isPlayerTeam()){
+                if(a instanceof myTeam || b instanceof myTeam){
                     int result= compare(a, b);
                     if(result>0){
                         a.addPoints(3);
@@ -234,7 +268,6 @@ public class playGame{
                         a.affectCash(200);
                         b.affectMorale(-10);
                         b.affectCash(-100);
-                        System.out.println(a.getName()+" won against "+b.getName());
                     }
                     else{
                         b.addPoints(3);
@@ -242,10 +275,9 @@ public class playGame{
                         b.affectCash(200);
                         a.affectMorale(-10);
                         a.affectCash(-100);
-                        System.out.println(b.getName()+" won against "+a.getName());
                     }
                 }
-                else{
+                else if(a instanceof NPCTeam || b instanceof NPCTeam){
                     int res= r.nextInt(3);
                     if(res == 0){
                         a.addPoints(3);
@@ -253,7 +285,6 @@ public class playGame{
                         a.affectCash(200);
                         b.affectMorale(-10);
                         b.affectCash(-100);
-                        System.out.println(a.getName()+" won against "+b.getName());
                     }
                     else if(res == 1){
                         a.addPoints(1);
@@ -262,7 +293,6 @@ public class playGame{
                         b.addPoints(1);
                         b.affectMorale(5);
                         b.affectCash(50);
-                        System.out.println(a.getName()+" drew with "+b.getName());
                     }
                     else{
                         b.addPoints(3);
@@ -270,7 +300,6 @@ public class playGame{
                         b.affectCash(200);
                         a.affectMorale(-10);
                         a.affectCash(-100);
-                        System.out.println(b.getName()+" won against "+a.getName());
                     }
                 }
             }
@@ -279,7 +308,7 @@ public class playGame{
     public void play()throws IOException{
         createYourTeam();
         int i;
-        for(i=1;i<10;i++){
+        for(i=0;i<10;i++){
             if(playerTeam.isCashZero()|| playerTeam.isMoraleZero()){
                 terminationLetter();
                 break;
@@ -288,7 +317,7 @@ public class playGame{
             System.out.println("Total money left: "+ playerTeam.getTotalCost());
             int j=0;
             for(j=0;j<2;j++){
-               int randomIndex= r.nextInt(100);
+                int randomIndex= r.nextInt(100);
                 if(randomIndex == 47){
                     situation5();
                 }
@@ -308,7 +337,7 @@ public class playGame{
             playOneMatchday();
             System.out.println("Table after Matchday "+ i+": ");
             sortTeams();
-            displayTeams();
+            //displayTeams();
         }
     }
     public void sortTeams(){
@@ -326,6 +355,9 @@ public class playGame{
             }
             teams.add(i, mostPoints);
             teams.add(index, a);
+        }
+        for(Team E: teams){
+            System.out.println(E.toString());
         }
     }
     public void terminationLetter(){}
