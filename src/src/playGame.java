@@ -177,7 +177,6 @@ public class playGame{
         }
     }
     public void situation4()throws IOException{
-        int age= r.nextInt(17, 43);
         System.out.println("Hey boss, wanted to make an ask of something. The lads and I have been working ");
         System.out.println("pretty hard in training this last week, and we're all burnt out because of it.");
         System.out.println("We were wondering if it were possible for us to get the day off from training. I know ");
@@ -204,6 +203,32 @@ public class playGame{
             }
         }
     }
+    public void situation5()throws IOException{
+        System.out.println("Hey boss, wanted to make an ask of something.Just wanted to tell you about a dispute that occured recently.");
+        System.out.println("One of our players were involved in a speeding violation. It would cause an issue if this situation were to come out to the press.");
+        System.out.println("So, we can take care of the issue by spending some money. Final choice is of course, up to you boss");
+        System.out.println();
+        System.out.println("[Cash: -900");
+        System.out.println("  Team Morale: +0]");
+        System.out.println();
+        String ans= br.readLine();
+        while(true){
+            if(ans.compareTo("Y") == 0){  
+                teams.get(teams.indexOf(playerTeam)).affectMorale(0);
+                teams.get(teams.indexOf(playerTeam)).affectCash(-900);
+                break;
+            }
+            else if(ans.compareTo("N")==0){
+                teams.get(teams.indexOf(playerTeam)).affectMorale(-20);
+                break;
+            }
+            else{
+                System.out.println("Please enter Y or N. For the sake of this text captain and his text players who are extremely tired and want a day off, please");
+                ans= br.readLine();
+            }
+        }
+    }
+
     public void playOneMatchDay(){
         
     }
