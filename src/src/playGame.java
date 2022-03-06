@@ -116,7 +116,7 @@ public class playGame{
     }
     public void situation3()throws IOException{
         int age= r.nextInt(17, 43);
-        System.out.println("Your assistant manager approaches you with a scouting report, its of a team player with" + age + " years ");
+        System.out.println("Your assistant manager approaches you with a scouting report, its of a team player with " + age + " years ");
         System.out.println("We could sell this player, and earn some money for other improvements. But it would affect the team morale though. ");
         System.out.println("for this one. What do you say? Should we sell him?");
         System.out.println();
@@ -226,7 +226,7 @@ public class playGame{
                 }
             }
             else{
-                if(a instanceof myTeam || b instanceof myTeam){
+                if(a.isPlayerTeam() || b.isPlayerTeam()){
                     int result= compare(a, b);
                     if(result>0){
                         a.addPoints(3);

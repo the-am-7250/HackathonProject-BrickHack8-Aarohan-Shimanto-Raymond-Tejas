@@ -74,4 +74,7 @@ public class myTeam extends TeamBase implements Team{
     public String toString(){
         return getName() + " "+getPoints();
     }
+    public boolean isPlayerTeam(){
+        return true;
+    }
 }

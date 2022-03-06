@@ -70,4 +70,7 @@ public class NPCTeam extends TeamBase implements Team{
         }
         return bool;
     }
+    public boolean isPlayerTeam(){
+        return false;
+    }
 }
