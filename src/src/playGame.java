@@ -145,7 +145,7 @@ public class playGame{
                 break;
             }
             else{
-                System.out.println("Please enter Y or N. For the sake of this text coaching team. Please");
+                System.out.println("Please enter Y or N. For the sake of this text coaching team, please");
                 ans= br.readLine();
             }
         }
@@ -160,14 +160,10 @@ public class playGame{
         System.out.println("[Cash: +700");
         System.out.println("  Team Morale: -10]");
         System.out.println();
-        int chance= r.nextInt(2);
         String ans= br.readLine();
         while(true){
-            if(ans.compareTo("Y") == 0){
-                int a;
-                if(chance == 0)
-                    a= -10;     
-                teams.get(teams.indexOf(playerTeam)).affectMorale(a);
+            if(ans.compareTo("Y") == 0){ 
+                teams.get(teams.indexOf(playerTeam)).affectMorale(-10);
                 teams.get(teams.indexOf(playerTeam)).affectCash(700);
                 break;
             }
@@ -175,39 +171,40 @@ public class playGame{
                 break;
             }
             else{
-                System.out.println("Please enter Y or N. For the sake of this text coaching team. Please");
+                System.out.println("Please enter Y or N. For the sake of this text coaching team, please");
                 ans= br.readLine();
             }
         }
-
     }
     public void situation4()throws IOException{
         int age= r.nextInt(17, 43);
-        System.out.println("Your assistant manager approaches you with a scouting report, its of a team player with" + age + " years ");
-        System.out.println("We could sell this player, and earn some money for other improvements. But it would affect the team morale though. ");
-        System.out.println("for this one. What do you say? Should we sell him?");
+        System.out.println("Hey boss, wanted to make an ask of something. The lads and I have been working ");
+        System.out.println("pretty hard in training this last week, and we're all burnt out because of it.");
+        System.out.println("We were wondering if it were possible for us to get the day off from training. I know ");
+        System.out.println("this is last minute, and would result in the team having a lit of loss in terms of money,");
+        System.out.println("but its something we would all benefit from greatly. Final choice is of course, up to you boss");
         System.out.println();
-        System.out.println("[Cash: +700");
-        System.out.println("  Team Morale: -10]");
+        System.out.println("[Cash: -60");
+        System.out.println("  Team Morale: +5]");
         System.out.println();
-        int chance= r.nextInt(2);
         String ans= br.readLine();
         while(true){
-            if(ans.compareTo("Y") == 0){
-                int a;
-                if(chance == 0)
-                    a= -10;     
-                teams.get(teams.indexOf(playerTeam)).affectMorale(a);
-                teams.get(teams.indexOf(playerTeam)).affectCash(700);
+            if(ans.compareTo("Y") == 0){  
+                teams.get(teams.indexOf(playerTeam)).affectMorale(5);
+                teams.get(teams.indexOf(playerTeam)).affectCash(-100);
                 break;
             }
             else if(ans.compareTo("N")==0){
+                teams.get(teams.indexOf(playerTeam)).affectMorale(-5);
                 break;
             }
             else{
-                System.out.println("Please enter Y or N. For the sake of this text coaching team. Please");
+                System.out.println("Please enter Y or N. For the sake of this text captain and his text players who are extremely tired and want a day off, please");
                 ans= br.readLine();
             }
-
+        }
+    }
+    public void playOneMatchDay(){
+        
     }
 }

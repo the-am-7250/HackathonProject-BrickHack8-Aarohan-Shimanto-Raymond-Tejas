@@ -1,4 +1,7 @@
 package src;
+
+import java.util.HashMap;
+
 /**
  * File name: NPCTeam.java
  * @author: Aarohan Mishra
@@ -9,6 +12,7 @@ public class NPCTeam extends TeamBase implements Team{
     private String NAME;
     private int gamesPlayed;
     private int pointsGained;
+    private HashMap<Team, Integer> playCounter;
     public NPCTeam(String name){
         super();
         Morale= 60;
@@ -16,6 +20,7 @@ public class NPCTeam extends TeamBase implements Team{
         NAME= name;
         gamesPlayed= 0;
         pointsGained=0;
+        playCounter= new HashMap<>();
     }
     public int getMorale(){
         return Morale;
@@ -42,5 +47,10 @@ public class NPCTeam extends TeamBase implements Team{
         Morale+= moraleAffect;
     }
     public void affectCash(int cashAffect){}
-    
+    public void updatePlayCounter(Team a){
+        playCounter.put(a, 1);
+    }
+    public boolean hasPlayed(Team a){
+        return playCounter.containsValue(a);
+    }
 }

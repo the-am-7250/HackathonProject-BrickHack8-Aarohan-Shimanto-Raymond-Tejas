@@ -17,6 +17,8 @@ public interface Team  {
     public void gamePlayed();
     public void affectMorale(int moraleAffect);
     public void affectCash(int cashAffect);
+    public void updatePlayCounter(Team a);
+    public boolean hasPlayed(Team a);
     }
     
 

@@ -1,4 +1,7 @@
 package src;
+
+import java.util.HashMap;
+
 /**
  * File Name: myTeam.java
  * @author: Aarohan Mishra and Shimanto Bhowmik
@@ -9,12 +12,14 @@ public class myTeam extends TeamBase implements Team{
     private double cash;
     private int gamesPlayed;
     private int pointsGained;
+    private HashMap<Team, Integer> playCounter;
     public myTeam(String name){
         Morale= 60;
         cash= 1000;
         NAME= name;
         gamesPlayed= 0;
         pointsGained=0;
+        playCounter= new HashMap<>();
     }
     public int getMorale(){
         return Morale;
@@ -59,5 +64,11 @@ public class myTeam extends TeamBase implements Team{
             bool = true;
         }
         return bool;
+    }
+    public void updatePlayCounter(Team a){
+        playCounter.put(a, 1);
+    }
+    public boolean hasPlayed(Team a){
+        return playCounter.containsValue(a);
     }
 }
