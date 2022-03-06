@@ -21,8 +21,7 @@ public abstract class TeamBase implements Team{
     }
 
     public abstract double getTotalCost();
-    @Override
-    public int getPoints(){
+    public int getTotalPoints(){
         return 0;
     }
 
