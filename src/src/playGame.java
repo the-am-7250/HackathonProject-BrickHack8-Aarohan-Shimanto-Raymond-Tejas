@@ -330,30 +330,33 @@ public class playGame{
                 }
             }
             playOneMatchday();
-            System.out.println("Table after Matchday "+ i+": ");
+            System.out.println("Table after Matchday "+ (i+1) +": ");
             sortTeams();
-            //displayTeams();
+            displayTeams();
         }
     }
     public void sortTeams(){
         int i,j;
-        for(i=0;i<teams.size()-1;i++){
-            Team a= teams.get(i);
+        int size= teams.size();
+        Team[] holder= new Team[size];
+        for(i=0;i<size-1;i++){
+            Team a= holder[i];
             Team mostPoints= a;
             int index= i;
-            for(j=i+1;j<teams.size();j++){
-                Team b= teams.get(j);
+            for(j=i+1;j<size;j++){
+                Team b= holder[j];
                 if(b.getPoints()> mostPoints.getPoints()){
                     mostPoints= b;
                     index= j;
                 }
             }
-            teams.add(i, mostPoints);
-            teams.add(index, a);
+            Team temp= holder[i];
+            holder[i]= holder[index];
+            holder[index]= holder[i];
         }
-        
-        for(Team E: teams){
-            System.out.println(E.toString());
+        teams= new ArrayList<>();
+        for(i=0;i<size;i++){
+            teams.add(holder[i]);
         }
     }
     public void terminationLetter(){}
