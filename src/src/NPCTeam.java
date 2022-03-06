@@ -56,4 +56,18 @@ public class NPCTeam extends TeamBase implements Team{
     public String toString(){
         return getName() + " "+getPoints();
     }
+    public boolean isCashZero(){
+        boolean bool = false;
+        if(cash <=0){
+            bool = true;
+        }
+        return bool;
+    }
+    public boolean isMoraleZero(){
+        boolean bool = false;
+        if(Morale <=0){
+            bool = true;
+        }
+        return bool;
+    }
 }

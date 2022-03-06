@@ -20,6 +20,9 @@ public interface Team  {
     public void updatePlayCounter(Team a);
     public boolean hasPlayed(Team a);
     public String toString();
-    }
+    public boolean isCashZero();
+    public boolean isMoraleZero();
+}
+
     
 

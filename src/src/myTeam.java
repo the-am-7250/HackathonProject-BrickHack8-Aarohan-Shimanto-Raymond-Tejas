@@ -53,14 +53,14 @@ public class myTeam extends TeamBase implements Team{
     }
     public boolean isCashZero(){
         boolean bool = false;
-        if(cash ==0){
+        if(cash <=0){
             bool = true;
         }
         return bool;
     }
     public boolean isMoraleZero(){
         boolean bool = false;
-        if(Morale ==0){
+        if(Morale <=0){
             bool = true;
         }
         return bool;

@@ -92,13 +92,14 @@ public class playGame{
         System.out.print("(Y/N): ");
         String ans= br.readLine();
         while(true){
+            int x= teams.indexOf(playerTeam);
             if(ans.compareTo("Y") == 0){
-                teams.get(teams.indexOf(playerTeam)).affectMorale(10);
-                teams.get(teams.indexOf(playerTeam)).affectCash(-300);
+                teams.get(x).affectMorale(10);
+                teams.get(x).affectCash(-300);
                 break;
             }
             else if(ans.compareTo("N")==0){
-                teams.get(teams.indexOf(playerTeam)).affectMorale(-5);
+                teams.get(x).affectMorale(-5);
                 break;
             }
             else{
@@ -128,8 +129,9 @@ public class playGame{
                 else{
                     a= -10;
                 }
-                teams.get(teams.indexOf(playerTeam)).affectMorale(a);
-                teams.get(teams.indexOf(playerTeam)).affectCash(-700);
+                int x= teams.indexOf(playerTeam);
+                teams.get(x).affectMorale(a);
+                teams.get(x).affectCash(-700);
                 break;
             }
             else if(ans.compareTo("N")==0){
@@ -154,8 +156,9 @@ public class playGame{
         String ans= br.readLine();
         while(true){
             if(ans.compareTo("Y") == 0){ 
-                teams.get(teams.indexOf(playerTeam)).affectMorale(-10);
-                teams.get(teams.indexOf(playerTeam)).affectCash(700);
+                int x= teams.indexOf(playerTeam);
+                teams.get(x).affectMorale(-10);
+                teams.get(x).affectCash(700);
                 break;
             }
             else if(ans.compareTo("N")==0){
@@ -180,8 +183,9 @@ public class playGame{
         String ans= br.readLine();
         while(true){
             if(ans.compareTo("Y") == 0){  
-                teams.get(teams.indexOf(playerTeam)).affectMorale(5);
-                teams.get(teams.indexOf(playerTeam)).affectCash(-100);
+                int x= teams.indexOf(playerTeam);
+                teams.get(x).affectMorale(5);
+                teams.get(x).affectCash(-100);
                 break;
             }
             else if(ans.compareTo("N")==0){
@@ -221,7 +225,11 @@ public class playGame{
         }
     }
     public void playOneMatchday(){
-        ArrayList<Team>team_= teams;
+        ArrayList<Team>team_= new ArrayList<>();
+        int i;
+        for(i=0;i<teams.size();i++){
+            team_.add(teams.get(i));
+        }
         while(!team_.isEmpty()){
             int randomIndex= r.nextInt(team_.size());
             Team a= team_.remove(randomIndex);
@@ -292,12 +300,15 @@ public class playGame{
                 }
             }
         }
-        team_= teams;
     }
     public void play()throws IOException{
         createYourTeam();
         int i;
         for(i=0;i<10;i++){
+            if(playerTeam.isCashZero()|| playerTeam.isMoraleZero()){
+                terminationLetter();
+                break;
+            }
             System.out.println("Team Morale: "+playerTeam.getMorale());
             System.out.println("Total money left: "+ playerTeam.getTotalCost());
             int j=0;
@@ -322,6 +333,7 @@ public class playGame{
             playOneMatchday();
         }
     }
+    public void terminationLetter(){}
     public static void main(String[] args)throws IOException{
         playGame obj= new playGame();
         obj.play();
